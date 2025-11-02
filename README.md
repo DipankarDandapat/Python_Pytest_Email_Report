@@ -166,7 +166,7 @@ def test_checkout_process_completes_successfully():
 ```
 
 ### 📧 Basic Email Report Preview
-![Staging Email Report](doc/Basic Report.png)
+![Staging Email Report](doc/BasicReport.png)
 
     
 
@@ -984,7 +984,7 @@ testcases/
 
 ### 📧 Package-Wise Email Report Preview
 
-![Staging Email Report](doc/Package-Wise Report.png)
+![Staging Email Report](doc/Package-WiseReport.png)
 
 ### 📝 Source Code - Package-Wise Enhancements
 
@@ -1739,7 +1739,7 @@ def test_resume_creation_with_invalid_file_format():
 ```
 
 ### 📧 Tag-Wise Email Report Preview
-![Staging Email Report](doc/tag-Wise Report.png)
+![Staging Email Report](doc/tag-WiseReport.png)
 
 
 ### 📝 Source Code - Tag-Wise Enhancements
