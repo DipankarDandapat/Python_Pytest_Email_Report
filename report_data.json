@@ -1,0 +1,60 @@
+{
+    "report_title": "Comprehensive Automation Test Report",
+    "project_name": "Project Phoenix",
+    "environments": {
+        "dev": {
+            "trend_data": [
+                {
+                    "date": "2025-11-02",
+                    "timestamp": "2025-11-02 19:45:25",
+                    "total": 7,
+                    "passed": 4,
+                    "failed": 2,
+                    "skipped": 1,
+                    "package_tag_summary": {
+                        "aiVoiceInterview": {
+                            "smoke": {
+                                "passed": 1,
+                                "failed": 1,
+                                "skipped": 0,
+                                "total": 2
+                            },
+                            "positive": {
+                                "passed": 1,
+                                "failed": 0,
+                                "skipped": 0,
+                                "total": 1
+                            },
+                            "negative": {
+                                "passed": 1,
+                                "failed": 0,
+                                "skipped": 0,
+                                "total": 1
+                            }
+                        },
+                        "resumeBuilder": {
+                            "smoke": {
+                                "passed": 1,
+                                "failed": 1,
+                                "skipped": 0,
+                                "total": 2
+                            },
+                            "positive": {
+                                "passed": 0,
+                                "failed": 0,
+                                "skipped": 1,
+                                "total": 1
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "staging": {
+            "trend_data": []
+        },
+        "prod": {
+            "trend_data": []
+        }
+    }
+}
