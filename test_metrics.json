@@ -1,32 +1,32 @@
 {
-  "report_title": "Comprehensive Automation Test Report",
-  "project_name": "Project Phoenix",
+  "report_title": "API/UI TESTING REPORT",
+  "project_name": "NLB API Testing",
   "environments": {
-    "dev": {
-      "trend_data": []
-    },
     "staging": {
       "trend_data": [
         {
           "date": "2025-11-09",
-          "timestamp": "2025-11-09 19:47:23",
-          "total": 7,
-          "passed": 4,
-          "failed": 2,
-          "skipped": 1,
+          "timestamp": "2025-11-09 22:18:33",
+          "total": 14,
+          "passed": 8,
+          "failed": 4,
+          "skipped": 2,
           "package_summary": {
-            "testcases": {
-              "passed": 4,
+            "aiVoiceInterview": {
+              "passed": 6,
               "failed": 2,
-              "skipped": 1,
-              "total": 7
+              "skipped": 0,
+              "total": 8
+            },
+            "resumeBuilder": {
+              "passed": 2,
+              "failed": 2,
+              "skipped": 2,
+              "total": 6
             }
           }
         }
       ]
-    },
-    "prod": {
-      "trend_data": []
     }
   }
 }
