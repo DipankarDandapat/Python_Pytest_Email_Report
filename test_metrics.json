@@ -1,0 +1,32 @@
+{
+  "report_title": "Comprehensive Automation Test Report",
+  "project_name": "Project Phoenix",
+  "environments": {
+    "dev": {
+      "trend_data": []
+    },
+    "staging": {
+      "trend_data": [
+        {
+          "date": "2025-11-09",
+          "timestamp": "2025-11-09 19:47:23",
+          "total": 7,
+          "passed": 4,
+          "failed": 2,
+          "skipped": 1,
+          "package_summary": {
+            "testcases": {
+              "passed": 4,
+              "failed": 2,
+              "skipped": 1,
+              "total": 7
+            }
+          }
+        }
+      ]
+    },
+    "prod": {
+      "trend_data": []
+    }
+  }
+}
