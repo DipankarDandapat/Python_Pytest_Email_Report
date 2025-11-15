@@ -1,0 +1,60 @@
+{
+    "report_title": "Comprehensive Automation Test Report",
+    "project_name": "Test Automation Project",
+    "environments": {
+        "staging": {
+            "trend_data": [
+                {
+                    "date": "2025-11-15",
+                    "timestamp": "2025-11-15 10:30:34",
+                    "execution_time": "00:00:10",
+                    "total": 7,
+                    "passed": 4,
+                    "failed": 2,
+                    "skipped": 1,
+                    "package_summary": {
+                        "aiVoiceInterview": {
+                            "passed": 3,
+                            "failed": 1,
+                            "skipped": 0,
+                            "total": 4
+                        },
+                        "resumeBuilder": {
+                            "passed": 1,
+                            "failed": 1,
+                            "skipped": 1,
+                            "total": 3
+                        }
+                    }
+                }
+            ]
+        },
+        "prod": {
+            "trend_data": [
+                {
+                    "date": "2025-11-15",
+                    "timestamp": "2025-11-15 10:38:36",
+                    "execution_time": "00:00:10",
+                    "total": 7,
+                    "passed": 4,
+                    "failed": 2,
+                    "skipped": 1,
+                    "package_summary": {
+                        "aiVoiceInterview": {
+                            "passed": 3,
+                            "failed": 1,
+                            "skipped": 0,
+                            "total": 4
+                        },
+                        "resumeBuilder": {
+                            "passed": 1,
+                            "failed": 1,
+                            "skipped": 1,
+                            "total": 3
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

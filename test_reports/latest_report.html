@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pytest Automation Report - 2025-11-15 10:38:36</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            padding: 10px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #1a1a2e;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        h2 {
+            color: #1a1a2e;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            border-bottom: 2px solid #00d9ff;
+            padding-bottom: 10px;
+        }
+
+        /* Overall Status Section */
+        .status-container {
+            background: linear-gradient(135deg, #dc354520 0%, #dc354510 100%);
+            border-left: 5px solid #dc3545;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #dc3545;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .status-icon {
+            font-size: 2em;
+            margin-right: 10px;
+        }
+
+        /* Metadata Section */
+        .metadata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .metadata-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 3px solid #00d9ff;
+        }
+
+        .metadata-item strong {
+            display: block;
+            font-size: 1.1em;
+            color: #1a1a2e;
+            word-break: break-word;
+        }
+
+        .metadata-item span {
+            font-size: 0.85em;
+            color: #666;
+        }
+
+        /* Summary Cards */
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h3 {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card p {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .card small {
+            display: block;
+            font-size: 0.85em;
+            color: #999;
+        }
+
+        .card-total p { color: #343a40; }
+        .card-pass p { color: #28a745; }
+        .card-fail p { color: #dc3545; }
+        .card-skip p { color: #ffc107; }
+
+        /* Progress Bar */
+        .progress-bar-container {
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            height: 30px;
+            display: flex;
+        }
+
+        .progress-bar {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: width 0.5s;
+        }
+
+        .progress-pass { background-color: #28a745; }
+        .progress-fail { background-color: #dc3545; }
+        .progress-skip { background-color: #ffc107; }
+
+        /* Responsive Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+        }
+
+        th {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.95em;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Badge Styling */
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            color: white;
+        }
+
+        .badge-pass { background-color: #28a745; }
+        .badge-fail { background-color: #dc3545; }
+        .badge-skip { background-color: #ffc107; color: #333; }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.4em;
+            }
+
+            h2 {
+                font-size: 1.1em;
+            }
+
+            .metadata {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .card {
+                padding: 12px;
+            }
+
+            .card h3 {
+                font-size: 0.8em;
+            }
+
+            .card p {
+                font-size: 1.5em;
+            }
+
+            /* Responsive Table */
+            table {
+                font-size: 0.85em;
+            }
+
+            th {
+                padding: 10px;
+                font-size: 0.8em;
+            }
+
+            td {
+                padding: 8px;
+            }
+
+            .badge {
+                padding: 3px 8px;
+                font-size: 0.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.2em;
+            }
+
+            h2 {
+                font-size: 1em;
+            }
+
+            .summary-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .card p {
+                font-size: 1.3em;
+            }
+
+            .metadata-item strong {
+                font-size: 0.95em;
+            }
+
+            .metadata-item span {
+                font-size: 0.75em;
+            }
+
+            /* Horizontal scrolling for tables on small screens */
+            .table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                font-size: 0.8em;
+                min-width: 500px;
+            }
+
+            th, td {
+                padding: 6px;
+            }
+
+            .badge {
+                padding: 2px 6px;
+                font-size: 0.7em;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #999;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Automation Test Report</h1>
+
+        <!-- Overall Status Section -->
+        <div class="status-container">
+            <div class="status-badge">
+                <span class="status-icon">✗</span>
+                FAILURE - 57.1% Pass Rate
+            </div>
+            <p style="color: #666; margin-top: 10px;">Overall test execution status for current run</p>
+        </div>
+
+        <!-- Metadata Section -->
+        <div class="metadata">
+            <div class="metadata-item">
+                <strong>PROD</strong>
+                <span>Environment</span>
+            </div>
+            <div class="metadata-item">
+                <strong style="word-break: break-word;">2025-11-15</strong>
+                <span>Execution Date</span>
+            </div>
+            <div class="metadata-item">
+                <strong style="word-break: break-word;">00:00:10</strong>
+                <span>Total Execution Time</span>
+            </div>
+        </div>
+
+        <h2>Current Run Summary</h2>
+        <div class="summary-cards">
+            <div class="card card-total">
+                <h3>Total Tests</h3>
+                <p>7</p>
+            </div>
+            <div class="card card-pass">
+                <h3>Passed</h3>
+                <p>4</p>
+                <small>57.1%</small>
+            </div>
+            <div class="card card-fail">
+                <h3>Failed</h3>
+                <p>2</p>
+                <small>28.6%</small>
+            </div>
+            <div class="card card-skip">
+                <h3>Skipped</h3>
+                <p>1</p>
+                <small>14.3%</small>
+            </div>
+        </div>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar progress-pass" style="width: 57.1%;">4</div>
+            <div class="progress-bar progress-fail" style="width: 28.6%;">2</div>
+            <div class="progress-bar progress-skip" style="width: 14.3%;">1</div>
+        </div>
+
+        <h2>Package-wise Results</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Package</th>
+                        <th>Passed</th>
+                        <th>Failed</th>
+                        <th>Skipped</th>
+                        <th>Total</th>
+                        <th>Pass Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+        <tr>
+            <td data-label="Package"><strong>aiVoiceInterview</strong></td>
+            <td data-label="Passed"><span class="badge badge-pass">3</span></td>
+            <td data-label="Failed"><span class="badge badge-fail">1</span></td>
+            <td data-label="Skipped"><span class="badge badge-skip">0</span></td>
+            <td data-label="Total"><strong>4</strong></td>
+            <td data-label="Pass Rate"><strong>75.0%</strong></td>
+        </tr>
+        
+        <tr>
+            <td data-label="Package"><strong>resumeBuilder</strong></td>
+            <td data-label="Passed"><span class="badge badge-pass">1</span></td>
+            <td data-label="Failed"><span class="badge badge-fail">1</span></td>
+            <td data-label="Skipped"><span class="badge badge-skip">1</span></td>
+            <td data-label="Total"><strong>3</strong></td>
+            <td data-label="Pass Rate"><strong>33.3%</strong></td>
+        </tr>
+        
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Historical Trend (Last 7 Days) - PROD</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Passed</th>
+                        <th>Failed</th>
+                        <th>Skipped</th>
+                        <th>Total</th>
+                        <th>Pass Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+        <tr>
+            <td data-label="Date"><strong>2025-11-15</strong><br><small>2025-11-15 10:38:36</small></td>
+            <td data-label="Passed"><span class="badge badge-pass">4</span></td>
+            <td data-label="Failed"><span class="badge badge-fail">2</span></td>
+            <td data-label="Skipped"><span class="badge badge-skip">1</span></td>
+            <td data-label="Total"><strong>7</strong></td>
+            <td data-label="Pass Rate"><strong>57.1%</strong></td>
+        </tr>
+        
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>Report generated on 2025-11-15 10:38:36</p>
+            <p>This is an automated test report. For more details, please contact your QA team.</p>
+        </div>
+    </div>
+</body>
+</html>
+    

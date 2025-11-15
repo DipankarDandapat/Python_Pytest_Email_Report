@@ -1,5 +1,6 @@
 # def test_resume_creation_success():
 #     assert True
+import time
 
 # def test_resume_creation_failure():
 #     assert False, "Failed to create resume due to missing field"
@@ -21,6 +22,7 @@ def test_resume_creation_success():
 
 @pytest.mark.smoke
 def test_resume_creation_failure():
+    time.sleep(4)
     assert False, "Failed to create resume due to missing field"
 
 @pytest.mark.positive

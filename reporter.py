@@ -41,12 +41,14 @@ class Reporter:
 
     def send_slack(self, text: str, env: str):
         """Send plaintext report to Slack"""
-        if not self.slack_webhook:
-            print("⚠️ Slack webhook missing – skipping Slack notification")
-            return
+        # if not self.slack_webhook:
+        #     print("⚠️ Slack webhook missing – skipping Slack notification")
+        #     return
 
         # Format for Slack (code block)
-        slack_text = f"*{self.project_name}* - *{env.upper()}* Environment\n```\n{text}\n```"
+        slack_text = f"```\n{text}\n```"
+
+
 
         payload = {
             "text": f"Test Report for {env.upper()} environment",

@@ -6,16 +6,18 @@
 #
 # def test_interview_questions_timeout():
 #     assert True
-
+import time
 
 import pytest
 
 @pytest.mark.smoke
 def test_interview_questions_valid():
+    time.sleep(3)
     assert True
 
 @pytest.mark.smoke
 def test_interview_questions_invalid():
+    time.sleep(3)
     assert False, "Invalid question format detected"
 
 @pytest.mark.positive
